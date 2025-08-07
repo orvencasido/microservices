@@ -9,7 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git(
-                    url: 'https://github.com/orven/microservice-app.git',
+                    url: 'https://github.com/orvencasido/microservice-app.git',
                     branch: 'main',
                     credentialsId: 'github-creds'
                 )
@@ -18,22 +18,22 @@ pipeline {
         stage('Build Frontend') {
             steps {
                 dir('frontend') {
-                    sh 'docker build -t orven/frontend:${IMAGE_TAG} .'
+                    sh 'docker build -t orvencasido/frontend:${IMAGE_TAG} .'
                 }
             }
         }
         stage('Build API') {
             steps {
                 dir('api') {
-                    sh 'docker build -t orven/api:${IMAGE_TAG} .'
+                    sh 'docker build -t orvencasido/api:${IMAGE_TAG} .'
                 }
             }
         }
         stage('Push to DockerHub') {
             steps {
                 withDockerRegistry(credentialsId: 'dockerhub-creds') {
-                    sh 'docker push orven/frontend:${IMAGE_TAG}'
-                    sh 'docker push orven/api:${IMAGE_TAG}'
+                    sh 'docker push orvencasido/frontend:${IMAGE_TAG}'
+                    sh 'docker push orvencasido/api:${IMAGE_TAG}'
                 }
             }
         }
