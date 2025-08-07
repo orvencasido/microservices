@@ -9,7 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git(
-                    url: 'https://github.com/orvencasido/microservice-app.git',
+                    url: 'https://github.com/orvencasido/microservices.git',
                     branch: 'main',
                     credentialsId: 'github-creds'
                 )
