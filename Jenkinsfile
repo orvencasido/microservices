@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/orven/microservice-app.git', branch: 'main'
+                git credentialsId: 'github-creds', git url: 'https://github.com/orven/microservice-app.git', branch: 'main'
             }
         }
         stage('Build Frontend') {
