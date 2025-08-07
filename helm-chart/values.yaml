@@ -1,0 +1,13 @@
+frontend:
+  image:
+    repository: orven/frontend
+    tag: latest
+  service:
+    port: 80
+
+api:
+  image:
+    repository: orven/api
+    tag: latest
+  service:
+    port: 3000
