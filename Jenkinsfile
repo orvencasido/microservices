@@ -1,11 +1,6 @@
 pipeline {
-    agent {
-        docker {
-            image 'docker:latest'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
-    
+    agent any
+
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds')
         KUBECONFIG_CREDENTIALS = credentials('kubeconfig')
